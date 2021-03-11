@@ -1,9 +1,14 @@
 import React from 'react'
 import ReactDOM from "react-dom"
-import App from './App'
-import {Provider} from "react-redux" 
-import store from "./App/store"
+import App from './App';
+import './index.css';
+import reducer, { initialState } from './reducer';
+import { StateProvider } from './StateProvider';
+
 ReactDOM.render(
-<Provider store={store}>
-    <App/>
-</Provider>,document.getElementById('root'));
+    <StateProvider initialState={initialState} reducer={reducer}>
+        <App/> 
+    </StateProvider>
+
+    
+,document.getElementById('root'));
